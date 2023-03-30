@@ -1,3 +1,4 @@
+from pyspark import SparkContext as sc
 mylist = ["my", "pair", "rdd"]
 myRDD = sc.parallelize(mylist)
 myPairRDD = myRDD.map(lambda s: (s, len(s)))
