@@ -16,7 +16,7 @@
 - Pada baris terakhir, hasil akhir dari accumulator diambil dengan memanggil myaccum.value dan mencetaknya ke konsol. Hasil akhirnya adalah jumlah dari kumpulan bilangan bulat dari 1 hingga 99, yang seharusnya bernilai 4950.
 
 ## Broad Cast
-![](BroadCast\2.png)
+![](BroadCast/2.png)
 - Pada baris pertama kode, objek broadcastVar dibuat sebagai variabel broadcast yang berisi daftar bilangan bulat dari 1 hingga 99. Variabel broadcast adalah cara untuk menyebarkan variabel yang tidak berubah kepada semua worker pada Spark secara efisien, sehingga setiap worker dapat mengaksesnya tanpa harus memuat variabel tersebut ke dalam memori lokal.
 
 - Pada baris kedua, nilai dari variabel broadcast diambil dengan memanggil broadcastVar.value, yang akan mengembalikan nilai asli dari variabel broadcast. Dalam hal ini, nilai yang dikembalikan adalah daftar bilangan bulat dari 1 hingga 99 yang sudah disebarkan kepada semua worker pada Spark.
