@@ -1,27 +1,12 @@
 import sys
 from operator import  add
-from pyspark import SparkContext
+from pyspark import SparkContext as sc
 
-# Check for number of inputs passed from command line
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print >> sys.stderr, "Usage: access_log.py <file>"
-        exit(-1)
+access_log = sc.textFile("file:/home/cloudera/spark-2.0.0-bin-hadoop2.7/pendidikan.txt", 4)
 
-# Intialize the Spark Context with app name
-sc = SparkContext(appName="Log Analytics")
+error_log = access_log.filter(lambda x: "tinggi" in x)
 
-# Get the lines from the textfile, create 4 partitions
-access_log = sc.textFile(sys.argv[1], 4)
-
-#Filter Lines with ERROR only
-error_log = access_log.filter(lambda x: "ERROR" in x)
-
-# Cache error log in memory
 cached_log = error_log.cache()
 
-# Now perform an action -  count
 print ("Total number of error records are %s" % (cached_log.count()))
-
-# Now find the number of lines with 
-print ("Number of product pages visited that have Errors is %s" % (cached_log.filter(lambda x: "product" in x).count())) 
+print ("Number of product pages visited that have Errors is %s" % (cached_log.filter(lambda x: "pendidikan" in x).count()))
