@@ -6,7 +6,7 @@
 
 ---
 ## Accumulator
-![](Accumulator\1.png)
+![](Accumulator/1.png)
 - Pada baris pertama kode, objek myaccum dibuat sebagai variabel accumulator yang bernilai awal nol (0). Accumulator adalah variabel yang dapat diakses oleh setiap worker pada Spark, dan nilainya dapat ditingkatkan secara bersamaan oleh worker yang berbeda.
 
 - Selanjutnya, pada baris kedua, sebuah RDD (Resilient Distributed Dataset) dibuat dengan nama myrdd yang berisi bilangan bulat dari 1 hingga 99. RDD adalah dasar dari pemrograman Spark dan mewakili kumpulan item yang didistribusikan secara terdistribusi di beberapa mesin.
@@ -24,7 +24,7 @@
 - Hasil dari kode tersebut akan mencetak daftar bilangan bulat dari 1 hingga 99 ke konsol. Perlu diperhatikan bahwa variabel broadcast hanya berguna untuk variabel yang tidak berubah, seperti dalam kasus ini, daftar bilangan bulat yang tetap. Jika variabel berubah atau diubah nilai selama program berjalan, maka variabel broadcast tidak dapat digunakan.
 
 ## Log Analytics
-![](LogAnalytics\1.png)
+![](LogAnalytics/1.png)
 - Pada baris pertama kode, file teks "pendidikan.txt" dibaca menggunakan fungsi textFile pada Spark, dan dibagi menjadi 4 partisi. textFile akan mengembalikan RDD yang mewakili baris-baris dalam file teks sebagai elemen RDD.
 
 - Pada baris kedua, RDD yang diberi nama access_log difilter menggunakan fungsi filter dengan kondisi hanya baris yang mengandung kata "tinggi" yang akan dipertahankan dalam RDD.
@@ -38,7 +38,7 @@
 - Hasil dari kode tersebut adalah dua nilai jumlah baris yang dicetak ke konsol: total jumlah baris pada file pendidikan.txt yang mengandung kata "tinggi" dan jumlah baris pada file yang juga mengandung kata "pendidikan".
 
 ## Pair RDD
-![](PairRDD\3.png)
+![](PairRDD/3.png)
 - Pada baris pertama, sebuah list dengan nama mylist yang berisi tiga string yaitu "my", "pair", dan "rdd" dibuat.
 
 - Pada baris kedua, list tersebut diubah menjadi RDD dengan memanggil fungsi parallelize pada objek sc (SparkContext) pada Spark.
@@ -52,7 +52,7 @@
 - Pada baris terakhir, fungsi values digunakan untuk mengembalikan seluruh value dari setiap pasangan tuple dalam myPairRDD dan mengumpulkannya ke dalam bentuk list. Pada kasus ini, fungsi values akan mengembalikan list [2, 4, 3] dan dicetak ke konsol.
 
 ## System Commands Output
-![](SystemCommandsOutput\4.png)
+![](SystemCommandsOutput/4.png)
 - Pada baris pertama, operator import digunakan untuk mengimpor package sys.process._ yang berisi kelas-kelas untuk menjalankan proses operasi sistem pada Scala.
 
 - Pada baris kedua, sebuah variabel output dibuat dengan memanggil command Hadoop hadoop fs -ls menggunakan operator !!. Operator !! pada Scala digunakan untuk mengeksekusi command pada terminal dan mengembalikan output dari command tersebut.
@@ -60,8 +60,8 @@
 - Pada baris ketiga, output dari command Hadoop tersebut dicetak ke konsol menggunakan fungsi println. Output tersebut berisi informasi mengenai isi dari direktori yang aktif pada HDFS. Informasi tersebut dapat berupa nama file, ukuran file, tanggal pembuatan, dan hak akses.
 
 ## System Commands Return Code 
-![](SystemCommandsReturnCode\5.png)
-![](SystemCommandsReturnCode\6.png)
+![](SystemCommandsReturnCode/5.png)
+![](SystemCommandsReturnCode/6.png)
 - Pada baris pertama, operator import digunakan untuk mengimpor package sys.process._ yang berisi kelas-kelas untuk menjalankan proses operasi sistem pada Scala.
 
 - Pada baris kedua, sebuah variabel res dibuat dengan memanggil command sistem ls /tmp menggunakan operator !. Operator ! pada Scala digunakan untuk mengeksekusi command pada terminal dan mengembalikan nilai integer yang menunjukkan status exit dari command tersebut. Jika command berhasil dieksekusi, maka nilai integer yang dikembalikan adalah 0. Namun jika command gagal dieksekusi, maka nilai integer yang dikembalikan adalah nilai non-zero yang menunjukkan jenis error yang terjadi.
@@ -69,7 +69,7 @@
 - Pada baris ketiga, status exit dari command ls /tmp dicetak ke konsol menggunakan fungsi println. Jika command berhasil dieksekusi, maka nilai yang dicetak adalah result = 0. Namun jika command gagal dieksekusi, maka nilai yang dicetak adalah result = [nilai non-zero].
 
 ## Understanding RDD
-![](UndersandingRDDs\1.png)
+![](UndersandingRDDs/1.png)
 - Pada baris pertama, sc.defaultParallelism digunakan untuk mengecek jumlah partisi default yang digunakan oleh Spark.
 
 - Kemudian pada baris ke-5 dan ke-7, sebuah list myList dijalankan dan kemudian diubah menjadi RDD dengan menggunakan sc.parallelize(). Pada baris ke-6 dan ke-8, getNumPartitions() digunakan untuk mengecek jumlah partisi pada RDD yang telah dibuat.
@@ -83,7 +83,7 @@
 - Pada baris ke-30, toDebugString() digunakan untuk menampilkan lineage graph dari RDD. Lineage graph merupakan representasi visual dari RDD dan operasi-operasi yang telah dijalankan pada RDD tersebut.
 
 ## Word Count
-![](WordCount\7.png)
+![](WordCount/7.png)
 - Pertama, file teks dibaca dengan menggunakan sc.textFile(), dan dimuat ke dalam RDD.
 
 - Kemudian, tiap baris pada RDD tersebut dipecah-pecah menjadi kata-kata dengan menggunakan flatMap() dan dipetakan ke tuple (kata, 1) dengan map().
